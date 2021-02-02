@@ -36,7 +36,6 @@ img{
 .cabecera__nombre{
     margin-right: 10%;
     width:50%;
-    right: 10%;
     color:white;
     text-align: center;
 }
@@ -76,4 +75,20 @@ img{
     .cabecera{
         width: 100%;
     }
+}
+
+@media screen and (max-width:700px){
+    .cabecera__img{
+        display: none;
+    }
+    .cabecera{
+        width:60%;
+        justify-content: center;
+    }
+    .cabecera__nombre{
+        width:100%;
+        right: 0%;
+        margin-right: 0%;
+    }
+    
 }
