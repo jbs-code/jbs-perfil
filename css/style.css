@@ -71,3 +71,9 @@ img{
 .fas{
     font-size: 3rem;
 }
+
+@media screen and (max-width:1020px){
+    .cabecera{
+        width: 100%;
+    }
+}
