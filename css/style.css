@@ -21,7 +21,7 @@ img{
 /*Sección principal --Cabecera*/
 /*******************************/
 
-.container{
+.intro{
     width: 100%;
     display: flex;
     justify-content: center;
