@@ -10,11 +10,20 @@ body{
     display: flex;
     justify-content: center;
     color: #fff;
+    flex-direction: column;
 }
 
 img{
     width: 100%;
     height: auto;
+}
+
+h1{
+    font-size: 1.5rem;
+}
+
+h2{
+    font-size: 1rem;
 }
 
 /*******************************/
@@ -55,11 +64,6 @@ img{
 
 .cabecera__nombre h1{
     margin-top: 30px;
-    font-size: 1.5rem;
-}
-
-.cabecera__nombre h2{
-    font-size: 1rem;
 }
 
 .cabecera__img{
@@ -75,6 +79,7 @@ img{
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    overflow: hidden;
     margin: 30px auto;
     display: flex;
     align-items: center;
@@ -87,7 +92,7 @@ img{
     background-color: #006468;
 }
 
-.fas{
+.user-icon{
     font-size: 3rem;
 }
 
@@ -106,9 +111,107 @@ img{
     }
 }
 
-@media screen and (max-width:1020px){
+/*******************************/
+/*Sección Estudios*/
+/*******************************/
+
+.estudios{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.estudios__img-pc{
+    width: 80%;
+    position:absolute;
+}
+
+.estudios__escuela{
+    position: absolute;
+    top: 10vh;
+    text-align: center;
+}
+
+.estudios__escuela p{
+    margin-bottom: 10px;
+}
+
+.estudios__img-doc{
+    position: absolute;
+    width: 20%;
+    max-width:816px;
+    height:auto;
+    top:25vh; 
+    overflow: hidden;   
+    border-radius: 10px;
+}
+
+.estudios__container{
+    position: relative;
+}
+
+.estudios__img-slider{
+    display: flex;
+}
+
+.estudios__button{
+    font-size:2em;
+    color:#1bee5a;
+    cursor:pointer;
+    position: absolute;
+    font-size: 2rem;
+    top:50%;
+    z-index: 10;
+    animation: boton 1s ease-in-out infinite;
+}
+
+.estudios__button--lupa{
+    top:2%;
+    right: 2%;
+}
+
+.btn-lupa__event-noVisible{
+    pointer-events: none;
+    opacity: 0;
+}
+
+.btn-lupa__event-Visible{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.estudios__button--izq{
+    left: 5%;
+}
+.estudios__button--der{
+    right: 5%;
+}
+
+@media screen and (max-height:450px){
+    .estudios__escuela{
+        position: initial;
+        width:50%;
+        margin-right: 20px;
+    }
+    .estudios__img-doc{
+        position: initial;
+    }
+}
+
+@media screen and (max-width:1080px){
     .cabecera{
         width: 100%;
+    }
+
+    .estudios__img-pc{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:850px){
+    .estudios__img-pc{
+        opacity: 0;
     }
 }
 
@@ -124,6 +227,5 @@ img{
         width:100%;
         right: 0%;
         margin-right: 0%;
-    }
-    
+    }   
 }
