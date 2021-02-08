@@ -78,3 +78,37 @@ btnLupaMenos.addEventListener('click', () => {
     containerDoc.style.top = "25vh";
 
 });
+
+//menu
+const menuEstudios = document.querySelector(".estudios");
+const intro = document.querySelector(".intro");
+
+var menuButton = document.querySelectorAll(".menu-button");
+for (var i = 0; i < menuButton.length; i++) {
+    menuButton[i].addEventListener("click", () => {
+        tl.to(".menu", { y: "0", duration: 1 });
+        tl.fromTo("#menu-lista", { opacity: 0 }, { opacity: 1, duration: 1.5 });
+    });
+}
+
+//menu-home
+document.querySelector(".menu-home").addEventListener("click", () => {
+    if (menuEstudios.style.display == "flex") {
+        menuEstudios.style.display = "none";
+        intro.style.display = "flex";
+        tl.to(".menu", { y: "-100%", duration: 1 });
+    }
+    else{
+        tl.to(".menu", { y: "-100%", duration: 1 });
+    }
+});
+
+
+//menu-estudios
+document.querySelector("#menu-estudios").addEventListener("click", () => {
+    intro.style.display = "none";
+    menuEstudios.style.display = "flex";
+    tl.to(".menu", { y: "-100%", duration: 1 });
+    tl.fromTo(".estudios", { opacity: 0 }, { opacity: 1, duration: 1 });
+    sizeSlide();
+});
