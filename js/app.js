@@ -68,7 +68,12 @@ btnLupaMas.addEventListener('click', () => {
     document.querySelector(".estudios__img-pc").style.display = "none";
     document.querySelector(".estudios__escuela").style.display = "none";
     containerDoc.style.top = "0px";
-    containerDoc.style.left = "0px";
+    if (window.matchMedia("(min-width: 900px)").matches){
+        containerDoc.style.left = "";
+    }
+    else{
+        containerDoc.style.left = "0px";
+    }
 });
 
 btnLupaMenos.addEventListener('click', () => {
