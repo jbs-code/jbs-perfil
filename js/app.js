@@ -56,7 +56,10 @@ containerSlide.addEventListener('transitionend', () => {
     }
 });
 
+//Botones de lupa
+
 btnLupaMas.addEventListener('click', () => {
+    containerDoc.classList.remove("estudios__img-doc--size");
     containerDoc.style.width = "100%";
     sizeSlide();
     btnLupaMas.classList.remove("btn-lupa__event-Visible");
@@ -65,18 +68,20 @@ btnLupaMas.addEventListener('click', () => {
     document.querySelector(".estudios__img-pc").style.display = "none";
     document.querySelector(".estudios__escuela").style.display = "none";
     containerDoc.style.top = "0px";
+    containerDoc.style.left = "0px";
 });
 
 btnLupaMenos.addEventListener('click', () => {
-    containerDoc.style.width = "20%";
+    containerDoc.style.width = "";
+    containerDoc.classList.add("estudios__img-doc--size");
     sizeSlide();
     btnLupaMenos.classList.remove("btn-lupa__event-Visible");
     btnLupaMenos.classList.add("btn-lupa__event-noVisible");
     btnLupaMas.classList.add("btn-lupa__event-Visible");
-    document.querySelector(".estudios__img-pc").style.display = "inline";
-    document.querySelector(".estudios__escuela").style.display = "inline";
-    containerDoc.style.top = "25vh";
-
+    document.querySelector(".estudios__img-pc").style.display = "block";
+    document.querySelector(".estudios__escuela").style.display = "block";
+    containerDoc.style.top = "";
+    containerDoc.style.left = "";
 });
 
 //menu

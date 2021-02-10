@@ -193,12 +193,15 @@ h2{
 
 .estudios__img-doc{
     position: absolute;
-    width: 20%;
     max-width:816px;
     height:auto;
-    top:25vh; 
     overflow: hidden;   
     border-radius: 10px;
+}
+
+.estudios__img-doc--size{
+    width: 20%;
+    top:25vh; 
 }
 
 .estudios__container{
@@ -248,14 +251,43 @@ h2{
     right: 20px;
 }
 
-@media screen and (max-height:450px){
+/*******************************/
+/*Responsive design*/
+/*******************************/
+
+@media screen and (max-height:450px) and (orientation:landscape){
+    .estudios{
+        flex-direction: row;
+        align-items: center;
+    }
+    .estudios__img-pc{
+        opacity: 0;
+    }
     .estudios__escuela{
-        position: initial;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 5%;
         width:50%;
-        margin-right: 20px;
+        z-index: 10;
     }
     .estudios__img-doc{
-        position: initial;
+        right: 15%;
+    }
+    .estudios__img-doc--size{
+        width: 20%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media screen and (max-width:400px){
+    .estudios__escuela{
+        padding: 0px 10px;
+    }
+
+    .estudios__img-doc--size{
+        width: 80%;
+        top:35%;
     }
 }
 
@@ -264,14 +296,38 @@ h2{
         width: 100%;
     }
 
+    .cabecera__nombre{
+        margin-top: 20px;
+    }
+
     .estudios__img-pc{
         width: 100%;
     }
+
+    .menu-button--estudios{
+        top: -20px;
+        left: -70%;
+    }
+
+    .cabecera__user{
+        width: 60px;
+        height: 60px;
+    }
+
+    .user-icon{
+        font-size: 2rem;
+    }
 }
 
-@media screen and (max-width:850px){
+@media screen and (max-width:850px) and (orientation:portrait){
     .estudios__img-pc{
         opacity: 0;
+    }
+    .menu ul{
+        width: 50%;
+    }
+    .estudios__img-doc--size{
+        width: 70%;
     }
 }
 
@@ -287,5 +343,5 @@ h2{
         width:100%;
         right: 0%;
         margin-right: 0%;
-    }   
+    }  
 }
