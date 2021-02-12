@@ -68,10 +68,10 @@ btnLupaMas.addEventListener('click', () => {
     document.querySelector(".estudios__img-pc").style.display = "none";
     document.querySelector(".estudios__escuela").style.display = "none";
     containerDoc.style.top = "0px";
-    if (window.matchMedia("(min-width: 900px)").matches){
+    if (window.matchMedia("(min-width: 900px)").matches) {
         containerDoc.style.left = "";
     }
-    else{
+    else {
         containerDoc.style.left = "0px";
     }
 });
@@ -89,9 +89,42 @@ btnLupaMenos.addEventListener('click', () => {
     containerDoc.style.left = "";
 });
 
+//skills
+const boxSkill = document.querySelectorAll(".skill-box");
+const progress = document.querySelector(".skills-progress");
+const skill = document.querySelector("#skill");
+
+function barra(box) {
+    box.addEventListener('click', ()=>{
+        if(box.firstElementChild.classList.contains("html5")){
+            skill.textContent = "HTML";
+            progress.style.width = '90%';
+        }
+        else if(box.firstElementChild.classList.contains("css")){
+            skill.textContent = "CSS";
+            progress.style.width = '60%';
+        }
+        else if(box.firstElementChild.classList.contains("js")){
+            skill.textContent = "JavaScript";
+            progress.style.width = '50%';
+        }
+        if(box.firstElementChild.classList.contains("git")){
+            skill.textContent = "git";
+            progress.style.width = '70%';
+        }
+    });
+}
+
+for (var i = 0; i < boxSkill.length; i++) {
+    barra(boxSkill[i]);
+}
+
 //menu
 const menuEstudios = document.querySelector(".estudios");
 const intro = document.querySelector(".intro");
+const menuSkills = document.querySelector(".skills");
+
+intro.style.display = "flex";
 
 var menuButton = document.querySelectorAll(".menu-button");
 for (var i = 0; i < menuButton.length; i++) {
@@ -108,7 +141,12 @@ document.querySelector(".menu-home").addEventListener("click", () => {
         intro.style.display = "flex";
         tl.to(".menu", { y: "-100%", duration: 1 });
     }
-    else{
+    else if (menuSkills.style.display == "flex") {
+        menuSkills.style.display = "none";
+        intro.style.display = "flex";
+        tl.to(".menu", { y: "-100%", duration: 1 });
+    }
+    else {
         tl.to(".menu", { y: "-100%", duration: 1 });
     }
 });
@@ -116,9 +154,28 @@ document.querySelector(".menu-home").addEventListener("click", () => {
 
 //menu-estudios
 document.querySelector("#menu-estudios").addEventListener("click", () => {
-    intro.style.display = "none";
+    if(intro.style.display == "flex"){
+        intro.style.display = "none";
+    }
+    else if(menuSkills.style.display == "flex"){
+        menuSkills.style.display = "none";
+    }
     menuEstudios.style.display = "flex";
     tl.to(".menu", { y: "-100%", duration: 1 });
     tl.fromTo(".estudios", { opacity: 0 }, { opacity: 1, duration: 1 });
+    sizeSlide();
+});
+
+//menu-skills
+document.querySelector("#menu-habilidades").addEventListener("click", () => {
+    if(intro.style.display == "flex"){
+        intro.style.display = "none";
+    }
+    else if(menuEstudios.style.display == "flex"){
+        menuEstudios.style.display = "none";
+    }
+    menuSkills.style.display = "flex";
+    tl.to(".menu", { y: "-100%", duration: 1 });
+    tl.fromTo(".skills", { opacity: 0 }, { opacity: 1, duration: 1 });
     sizeSlide();
 });
