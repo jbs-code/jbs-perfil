@@ -27,6 +27,12 @@ function sizeSlide() {
     containerSlide.style.transform = "translateX(" + -size * cont + "px)";
 }
 
+function getOrientation(){ 
+    sizeSlide();
+} 
+
+window.onresize = function(){ getOrientation(); } 
+
 //Listeners
 btnDerecho.addEventListener('click', () => {
     if (cont >= slideImg.length - 1) return;
